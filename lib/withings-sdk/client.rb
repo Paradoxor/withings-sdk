@@ -79,6 +79,19 @@ module WithingsSDK
       }.merge(options))
     end
 
+    # Get a list of activity measures for the specified user
+    #
+    # @param user_id [Integer]
+    # @param options [Hash]
+    #
+    # @return [Array<WithingsSDK::Activity>]
+    def intraday_activities(user_id, options = {})
+      perform_request(:get, '/v2/measure', WithingsSDK::IntradayActivity, 'series', {
+        action: 'getintradayactivity',
+        userid: user_id
+      }.merge(options))
+    end
+
     # Get a list of body measurements taken by Withings devices
     #
     # @param user_id [Integer]
