@@ -1,6 +1,7 @@
 require 'withings-sdk/error'
 require 'withings-sdk/http/request'
 require 'withings-sdk/activity'
+require 'withings-sdk/intraday_activity'
 require 'withings-sdk/measurement_group'
 require 'withings-sdk/notification'
 require 'withings-sdk/sleep_series'
@@ -84,7 +85,7 @@ module WithingsSDK
     # @param user_id [Integer]
     # @param options [Hash]
     #
-    # @return [Array<WithingsSDK::Activity>]
+    # @return [Array<WithingsSDK::IntradayActivity>]
     def intraday_activities(user_id, options = {})
       perform_request(:get, '/v2/measure', WithingsSDK::IntradayActivity, 'series', {
         action: 'getintradayactivity',
